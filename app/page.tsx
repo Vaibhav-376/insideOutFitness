@@ -317,7 +317,7 @@ export default function Home() {
 
             <p className="mt-6 text-gray-600 leading-relaxed">
               With over 5,000 exercises and 80+ workout classes in our database,
-              F45 delivers fun, fast-paced training that keeps you motivated to
+              Inside Out Fitness delivers fun, fast-paced training that keeps you motivated to
               do more, achieve more, and be more.
             </p>
 
