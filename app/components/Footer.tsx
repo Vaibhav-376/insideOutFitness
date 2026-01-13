@@ -66,7 +66,7 @@ const Footer = () => {
 
         <div className="flex gap-8 items-center lg:justify-end">
           <Image src="/footer/franchise.webp" alt="" width={90} height={90} />
-          <Image src="/footer/badge.webp" alt="" width={90} height={90} />
+          <Image src="/footer/badge.jpg" alt="" width={90} height={90} />
         </div>
       </div>
 
