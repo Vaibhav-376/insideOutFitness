@@ -25,10 +25,10 @@ const AboutUs = () => {
     ];
 
     const work = [
-        { id: 1, title: "FUNCTIONAL HIT TRAINING", desc: "Each F45 workout is a unique program that incorporates cardio, resistance-based strength training, or a hybrid of both, all geared toward everyday life." },
+        { id: 1, title: "FUNCTIONAL HIT TRAINING", desc: "Each Inside Out Fitness workout is a unique program that incorporates cardio, resistance-based strength training, or a hybrid of both, all geared toward everyday life." },
         { id: 2, title: "INFINITE WORKOUTS", desc: "With more than 5,000 different movements specifically developed by our global athletics team, no two workouts are the same, keeping members challenged and having fun." },
-        { id: 3, title: "CERTIFIED COACHES", desc: "All of F45’s coaches are certified personal trainers who have the skills to safely modify each movement to any member’s individual needs." },
-        { id: 4, title: "OPTIMAL NUTRITION", desc: "The F45 Nutrition Portal offers an easy to follow online diet program that complements our training and takes the guesswork out of choosing the right foods." },
+        { id: 3, title: "CERTIFIED COACHES", desc: "All of Inside Out Fitness’s coaches are certified personal trainers who have the skills to safely modify each movement to any member’s individual needs." },
+        { id: 4, title: "OPTIMAL NUTRITION", desc: "The Inside Out Fitness Nutrition Portal offers an easy to follow online diet program that complements our training and takes the guesswork out of choosing the right foods." },
     ]
     const trainers = [
         {
