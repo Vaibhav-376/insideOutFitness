@@ -74,192 +74,190 @@ const AboutUs = () => {
 
     return (
         <div>
-<section className="bg-[#211551] text-white">
-  <div className="max-w-7xl mx-auto px-6 py-16 flex flex-col-reverse md:flex-row items-center gap-12">
-    
-    {/* Text */}
-    <div className="w-full md:w-1/2">
-      <h1 className="text-4xl md:text-5xl font-extrabold leading-tight">
-        More than workouts
-      </h1>
-      <h2 className="text-3xl md:text-4xl font-bold mt-2">
-        A Place to belong
-      </h2>
+            <section className="bg-[#211551] text-white">
+                <div className="max-w-7xl mx-auto px-6 py-16 flex flex-col-reverse md:flex-row items-center gap-12">
 
-      <p className="mt-6 text-base md:text-lg text-gray-200 leading-relaxed">
-        At Inside Out Fitness, we are dedicated to helping you achieve your fitness goals in a supportive and motivating environment.
-      </p>
+                    {/* Text */}
+                    <div className="w-full md:w-1/2">
+                        <h1 className="text-4xl md:text-5xl font-extrabold leading-tight">
+                            More than workouts
+                        </h1>
+                        <h2 className="text-3xl md:text-4xl font-bold mt-2">
+                            A Place to belong
+                        </h2>
 
-      <p className="mt-4 text-base md:text-lg text-gray-200 leading-relaxed">
-        Whether you're a beginner or a seasoned athlete, we offer a variety of classes and personalized training programs.
-      </p>
-    </div>
+                        <p className="mt-6 text-base md:text-lg text-gray-200 leading-relaxed">
+                            At Inside Out Fitness, we are dedicated to helping you achieve your fitness goals in a supportive and motivating environment.
+                        </p>
 
-    {/* Image */}
-    <div className="w-full md:w-1/2">
-      <Image
-        src="/aboutUs/aboutusHerosection.png"
-        width={600}
-        height={600}
-        alt="Fitness Team"
-        className="w-full h-auto rounded-xl shadow-xl"
-      />
-    </div>
-  </div>
-</section>
+                        <p className="mt-4 text-base md:text-lg text-gray-200 leading-relaxed">
+                            Whether you're a beginner or a seasoned athlete, we offer a variety of classes and personalized training programs.
+                        </p>
+                    </div>
+
+                    {/* Image */}
+                    <div className="w-full md:w-1/2">
+                        <Image
+                            src="/aboutUs/aboutusHerosection.png"
+                            width={600}
+                            height={600}
+                            alt="Fitness Team"
+                            className="w-full h-auto rounded-xl shadow-xl"
+                        />
+                    </div>
+                </div>
+            </section>
 
 
-<section className="bg-[#fdfbf7] py-20 relative">
-  <div className="max-w-6xl mx-auto px-6 text-center relative">
+            <section className="bg-[#fdfbf7] py-20 relative">
+                <div className="max-w-6xl mx-auto px-6 text-center relative">
 
-    {/* Navigation */}
-    <button
-      onClick={prevSlide}
-      className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2
+                    {/* Navigation */}
+                    <button
+                        onClick={prevSlide}
+                        className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2
       w-12 h-12 rounded-full bg-[#1f1456] text-white hover:scale-110 transition"
-    >
-      <ChevronLeft />
-    </button>
+                    >
+                        <ChevronLeft />
+                    </button>
 
-    <button
-      onClick={nextSlide}
-      className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2
+                    <button
+                        onClick={nextSlide}
+                        className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2
       w-12 h-12 rounded-full bg-[#1f1456] text-white hover:scale-110 transition"
-    >
-      <ChevronRight />
-    </button>
+                    >
+                        <ChevronRight />
+                    </button>
 
-    {/* Slide */}
-    <div className="relative min-h-[300px] flex items-center justify-center">
-      {slides.map((slide, index) => (
-        <div
-          key={index}
-          className={`absolute transition-all duration-500 ${
-            index === current ? "opacity-100 scale-100" : "opacity-0 scale-95"
-          }`}
-        >
-          <div className="flex justify-center gap-2 mb-6 text-red-600">
-            <Star size={18} fill="currentColor" />
-            <Star size={18} fill="currentColor" />
-            <Star size={18} fill="currentColor" />
-          </div>
+                    {/* Slide */}
+                    <div className="relative min-h-[300px] flex items-center justify-center">
+                        {slides.map((slide, index) => (
+                            <div
+                                key={index}
+                                className={`absolute transition-all duration-500 ${index === current ? "opacity-100 scale-100" : "opacity-0 scale-95"
+                                    }`}
+                            >
+                                <div className="flex justify-center gap-2 mb-6 text-red-600">
+                                    <Star size={18} fill="currentColor" />
+                                    <Star size={18} fill="currentColor" />
+                                    <Star size={18} fill="currentColor" />
+                                </div>
 
-          <p className="text-xs md:text-sm font-semibold tracking-widest text-[#1f1456] mb-4">
-            WHAT IS INSIDE OUT FITNESS TRAINING?
-          </p>
+                                <p className="text-xs md:text-sm font-semibold tracking-widest text-[#1f1456] mb-4">
+                                    WHAT IS INSIDE OUT FITNESS TRAINING?
+                                </p>
 
-          <h2 className="text-4xl md:text-6xl font-extrabold text-[#1f1456] mb-6">
-            {slide.title}
-          </h2>
+                                <h2 className="text-4xl md:text-6xl font-extrabold text-[#1f1456] mb-6">
+                                    {slide.title}
+                                </h2>
 
-          <p className="text-gray-600 max-w-xl mx-auto">
-            {slide.desc}
-          </p>
-        </div>
-      ))}
-    </div>
+                                <p className="text-gray-600 max-w-xl mx-auto">
+                                    {slide.desc}
+                                </p>
+                            </div>
+                        ))}
+                    </div>
 
-    {/* Dots */}
-    <div className="flex justify-center gap-3 mt-8">
-      {slides.map((_, i) => (
-        <button
-          key={i}
-          onClick={() => setCurrent(i)}
-          className={`w-3 h-3 rounded-full ${
-            i === current ? "bg-[#1f1456]" : "bg-gray-300"
-          }`}
-        />
-      ))}
-    </div>
-  </div>
-</section>
+                    {/* Dots */}
+                    <div className="flex justify-center gap-3 mt-8">
+                        {slides.map((_, i) => (
+                            <button
+                                key={i}
+                                onClick={() => setCurrent(i)}
+                                className={`w-3 h-3 rounded-full ${i === current ? "bg-[#1f1456]" : "bg-gray-300"
+                                    }`}
+                            />
+                        ))}
+                    </div>
+                </div>
+            </section>
 
 
             <section>
                 <OurCoreValues />
             </section>
 
-<section className="max-w-7xl mx-auto px-6 py-20 flex flex-col-reverse md:flex-row gap-12 items-center">
+            <section className="max-w-7xl mx-auto px-6 py-20 flex flex-col-reverse md:flex-row gap-12 items-center">
 
-  {/* Content */}
-  <div className="w-full md:w-1/2">
-    <h2 className="text-4xl font-bold text-[#211551] mb-4">
-      How Inside Out Fitness Works?
-    </h2>
+                {/* Content */}
+                <div className="w-full md:w-1/2">
+                    <h2 className="text-4xl font-bold text-[#211551] mb-4">
+                        How Inside Out Fitness Works?
+                    </h2>
 
-    <p className="text-gray-600 mb-8">
-      High-intensity functional group workouts that are fast, fun and results-driven.
-    </p>
+                    <p className="text-gray-600 mb-8">
+                        High-intensity functional group workouts that are fast, fun and results-driven.
+                    </p>
 
-    <div className="space-y-6">
-      {work.map(item => (
-        <div key={item.id} className="border-b pb-4">
-          <div
-            className="flex justify-between items-center cursor-pointer"
-            onClick={() => setOpenId(openId === item.id ? null : item.id)}
-          >
-            <h3 className="text-xl font-semibold text-[#211551]">
-              {item.title}
-            </h3>
-            <span className="text-3xl">
-              {openId === item.id ? "−" : "+"}
-            </span>
-          </div>
+                    <div className="space-y-6">
+                        {work.map(item => (
+                            <div key={item.id} className="border-b pb-4">
+                                <div
+                                    className="flex justify-between items-center cursor-pointer"
+                                    onClick={() => setOpenId(openId === item.id ? null : item.id)}
+                                >
+                                    <h3 className="text-xl font-semibold text-[#211551]">
+                                        {item.title}
+                                    </h3>
+                                    <span className="text-3xl">
+                                        {openId === item.id ? "−" : "+"}
+                                    </span>
+                                </div>
 
-          {openId === item.id && (
-            <p className="mt-3 text-gray-600">
-              {item.desc}
-            </p>
-          )}
-        </div>
-      ))}
-    </div>
-  </div>
+                                {openId === item.id && (
+                                    <p className="mt-3 text-gray-600">
+                                        {item.desc}
+                                    </p>
+                                )}
+                            </div>
+                        ))}
+                    </div>
+                </div>
 
-  {/* Image */}
-  <div className="w-full md:w-1/2">
-    <Image
-      src="/aboutUs/coach.png"
-      width={600}
-      height={600}
-      alt="Coach"
-      className="rounded-xl shadow-xl w-full"
-    />
-  </div>
-</section>
+                {/* Image */}
+                <div className="w-full md:w-1/2">
+                    <Image
+                        src="/aboutUs/coach.png"
+                        width={600}
+                        height={600}
+                        alt="Coach"
+                        className="rounded-xl shadow-xl w-full"
+                    />
+                </div>
+            </section>
 
-<section className="bg-gray-900 text-white py-20 px-6">
-  <div className="max-w-7xl mx-auto">
+            <section className="bg-gray-900 text-white py-20 px-6">
+                <div className="max-w-7xl mx-auto">
 
-    <div className="text-center mb-16">
-      <h2 className="text-4xl font-bold mb-4">
-        Get To Know The Team
-      </h2>
-      <p className="text-gray-300 max-w-2xl mx-auto">
-        Our coaches are the heart of our community.
-      </p>
-    </div>
+                    <div className="text-center mb-16">
+                        <h2 className="text-4xl font-bold mb-4">
+                            Get To Know The Team
+                        </h2>
+                        <p className="text-gray-300 max-w-2xl mx-auto">
+                            Our coaches are the heart of our community.
+                        </p>
+                    </div>
 
-    <div className="grid md:grid-cols-2 gap-10">
-      {trainers.map(trainer => (
-        <div
-          key={trainer.id}
-          className="flex flex-col sm:flex-row bg-gray-800 rounded-xl p-6 hover:scale-[1.02] transition"
-        >
-          <img
-            src={trainer.img}
-            className="w-40 h-40 object-cover rounded-lg mb-4 sm:mb-0 sm:mr-6"
-          />
-          <div>
-            <h3 className="text-2xl font-bold text-red-600">{trainer.name}</h3>
-            <p className="italic text-gray-300">{trainer.role}</p>
-            <p className="mt-2 text-gray-400">{trainer.description}</p>
-          </div>
-        </div>
-      ))}
-    </div>
-  </div>
-</section>
+                    <div className="grid md:grid-cols-2 gap-10">
+                        {trainers.map(trainer => (
+                            <div
+                                key={trainer.id}
+                                className="flex flex-col sm:flex-row bg-gray-800 rounded-xl p-6 hover:scale-[1.02] transition"
+                            >
+                                <img
+                                    src={trainer.img}
+                                    className="w-40 h-40 object-cover rounded-lg mb-4 sm:mb-0 sm:mr-6"
+                                />
+                                <div>
+                                    <h3 className="text-2xl font-bold text-red-600">{trainer.name}</h3>
+                                    <p className="italic text-gray-300">{trainer.role}</p>
+                                    <p className="mt-2 text-gray-400">{trainer.description}</p>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
 
 
             <section className=" text-[#211551] py-24">
@@ -276,7 +274,7 @@ const AboutUs = () => {
                         </p>
                     </div>
 
-                
+
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 auto-rows-[220px]">
 
                         {images.map((src, index) => (
