@@ -28,7 +28,7 @@ const Navbar = () => {
     },
     {
       title: "About Us",
-      href: "/",
+      href: "/about-us",
       // submenu: [
       //   { label: "Training Styles", href: "/workouts/styles" },
       //   { label: "Classes", href: "/workouts/classes" },

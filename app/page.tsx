@@ -4,11 +4,9 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion"
 import Testimonials from "./components/Testimonials";
 import Ourservices from "./components/Ourservices";
-
-// import { motion, AnimatePresence } from "framer-motion"
-// import Image from "next/image"
 import { useEffect, useState } from "react"
 import LeadFormSection from "./components/LeadForm";
+import CoachingApproach from "./components/CoachingApproach";
 
 
 export default function Home() {
@@ -400,7 +398,9 @@ export default function Home() {
         </div>
       </section>
 
-
+      <section>
+        <CoachingApproach />
+      </section>
       <section>
         <Testimonials />
       </section>
