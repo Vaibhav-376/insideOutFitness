@@ -73,216 +73,238 @@ const AboutUs = () => {
     const [openId, setOpenId] = useState<number | null>(null);
 
     return (
-<div className="overflow-hidden">
+        <div>
+<section className="bg-[#211551] text-white">
+  <div className="max-w-7xl mx-auto px-6 py-16 flex flex-col-reverse md:flex-row items-center gap-12">
+    
+    {/* Text */}
+    <div className="w-full md:w-1/2">
+      <h1 className="text-4xl md:text-5xl font-extrabold leading-tight">
+        More than workouts
+      </h1>
+      <h2 className="text-3xl md:text-4xl font-bold mt-2">
+        A Place to belong
+      </h2>
 
-  <section className="flex flex-col lg:flex-row bg-[#211551] text-white items-center">
-    <div className="w-full lg:w-1/2 px-6 py-16 lg:p-16">
-      <h1 className="text-4xl md:text-5xl font-bold mb-2">More than workouts</h1>
-      <h2 className="text-3xl md:text-4xl font-bold mb-6">A Place to belong</h2>
-      <p className="text-base md:text-lg mb-5 text-gray-200">
+      <p className="mt-6 text-base md:text-lg text-gray-200 leading-relaxed">
         At Inside Out Fitness, we are dedicated to helping you achieve your fitness goals in a supportive and motivating environment.
       </p>
-      <p className="text-base md:text-lg text-gray-200">
-        Whether you're a beginner or a seasoned athlete, we offer personalized programs to suit your needs.
+
+      <p className="mt-4 text-base md:text-lg text-gray-200 leading-relaxed">
+        Whether you're a beginner or a seasoned athlete, we offer a variety of classes and personalized training programs.
       </p>
     </div>
-    <div className="w-full lg:w-1/2 h-[300px] md:h-[450px]">
+
+    {/* Image */}
+    <div className="w-full md:w-1/2">
       <Image
         src="/aboutUs/aboutusHerosection.png"
+        width={600}
+        height={600}
         alt="Fitness Team"
-        fill
-        className="object-cover"
+        className="w-full h-auto rounded-xl shadow-xl"
       />
     </div>
-  </section>
+  </div>
+</section>
 
-  <section className="bg-[#fdfbf7] py-20 relative">
-    <div className="max-w-6xl mx-auto px-4 text-center relative">
 
-      <button
-        onClick={prevSlide}
-        className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 rounded-full bg-[#1f1456] text-white flex items-center justify-center z-10"
-      >
-        <ChevronLeft size={20} />
-      </button>
+<section className="bg-[#fdfbf7] py-20 relative">
+  <div className="max-w-6xl mx-auto px-6 text-center relative">
 
-      <button
-        onClick={nextSlide}
-        className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 rounded-full bg-[#1f1456] text-white flex items-center justify-center z-10"
-      >
-        <ChevronRight size={20} />
-      </button>
+    {/* Navigation */}
+    <button
+      onClick={prevSlide}
+      className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2
+      w-12 h-12 rounded-full bg-[#1f1456] text-white hover:scale-110 transition"
+    >
+      <ChevronLeft />
+    </button>
 
-      <div className="relative h-[360px] flex items-center justify-center">
-        {slides.map((slide, index) => (
+    <button
+      onClick={nextSlide}
+      className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2
+      w-12 h-12 rounded-full bg-[#1f1456] text-white hover:scale-110 transition"
+    >
+      <ChevronRight />
+    </button>
+
+    {/* Slide */}
+    <div className="relative min-h-[300px] flex items-center justify-center">
+      {slides.map((slide, index) => (
+        <div
+          key={index}
+          className={`absolute transition-all duration-500 ${
+            index === current ? "opacity-100 scale-100" : "opacity-0 scale-95"
+          }`}
+        >
+          <div className="flex justify-center gap-2 mb-6 text-red-600">
+            <Star size={18} fill="currentColor" />
+            <Star size={18} fill="currentColor" />
+            <Star size={18} fill="currentColor" />
+          </div>
+
+          <p className="text-xs md:text-sm font-semibold tracking-widest text-[#1f1456] mb-4">
+            WHAT IS INSIDE OUT FITNESS TRAINING?
+          </p>
+
+          <h2 className="text-4xl md:text-6xl font-extrabold text-[#1f1456] mb-6">
+            {slide.title}
+          </h2>
+
+          <p className="text-gray-600 max-w-xl mx-auto">
+            {slide.desc}
+          </p>
+        </div>
+      ))}
+    </div>
+
+    {/* Dots */}
+    <div className="flex justify-center gap-3 mt-8">
+      {slides.map((_, i) => (
+        <button
+          key={i}
+          onClick={() => setCurrent(i)}
+          className={`w-3 h-3 rounded-full ${
+            i === current ? "bg-[#1f1456]" : "bg-gray-300"
+          }`}
+        />
+      ))}
+    </div>
+  </div>
+</section>
+
+
+            <section>
+                <OurCoreValues />
+            </section>
+
+<section className="max-w-7xl mx-auto px-6 py-20 flex flex-col-reverse md:flex-row gap-12 items-center">
+
+  {/* Content */}
+  <div className="w-full md:w-1/2">
+    <h2 className="text-4xl font-bold text-[#211551] mb-4">
+      How Inside Out Fitness Works?
+    </h2>
+
+    <p className="text-gray-600 mb-8">
+      High-intensity functional group workouts that are fast, fun and results-driven.
+    </p>
+
+    <div className="space-y-6">
+      {work.map(item => (
+        <div key={item.id} className="border-b pb-4">
           <div
-            key={index}
-            className={`absolute w-full transition-all duration-500 ${
-              index === current ? "opacity-100 translate-x-0" : "opacity-0"
-            }`}
+            className="flex justify-between items-center cursor-pointer"
+            onClick={() => setOpenId(openId === item.id ? null : item.id)}
           >
-            <div className="flex justify-center gap-1 mb-6 text-red-600">
-              <Star size={16} fill="currentColor" />
-              <Star size={16} fill="currentColor" />
-              <Star size={16} fill="currentColor" />
-            </div>
-
-            <p className="text-xs tracking-widest font-semibold text-[#1f1456] mb-4">
-              WHAT IS INSIDE OUT FITNESS TRAINING?
-            </p>
-
-            <h2 className="text-4xl md:text-6xl font-extrabold text-[#1f1456] mb-8">
-              {slide.title}
-            </h2>
-
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              {slide.desc}
-            </p>
+            <h3 className="text-xl font-semibold text-[#211551]">
+              {item.title}
+            </h3>
+            <span className="text-3xl">
+              {openId === item.id ? "−" : "+"}
+            </span>
           </div>
-        ))}
-      </div>
 
-      <div className="flex justify-center gap-3 mt-10">
-        {slides.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => setCurrent(index)}
-            className={`w-3 h-3 rounded-full ${
-              index === current ? "bg-[#1f1456]" : "bg-gray-300"
-            }`}
-          />
-        ))}
-      </div>
+          {openId === item.id && (
+            <p className="mt-3 text-gray-600">
+              {item.desc}
+            </p>
+          )}
+        </div>
+      ))}
     </div>
-  </section>
+  </div>
 
-  <section>
-    <OurCoreValues />
-  </section>
+  {/* Image */}
+  <div className="w-full md:w-1/2">
+    <Image
+      src="/aboutUs/coach.png"
+      width={600}
+      height={600}
+      alt="Coach"
+      className="rounded-xl shadow-xl w-full"
+    />
+  </div>
+</section>
 
-  <section className="flex flex-col lg:flex-row max-w-7xl mx-auto px-6 py-20 gap-12">
-    <div className="w-full lg:w-1/2">
-      <h2 className="text-3xl md:text-4xl font-bold text-[#211551] mb-6">
-        How Inside Out Fitness Works?
+<section className="bg-gray-900 text-white py-20 px-6">
+  <div className="max-w-7xl mx-auto">
+
+    <div className="text-center mb-16">
+      <h2 className="text-4xl font-bold mb-4">
+        Get To Know The Team
       </h2>
-      <p className="font-semibold mb-4">It's Science</p>
-      <p className="text-gray-600 mb-8">
-        Inside Out Fitness offers innovative, high-intensity functional group workouts that are fast, fun and results-driven.
+      <p className="text-gray-300 max-w-2xl mx-auto">
+        Our coaches are the heart of our community.
       </p>
-
-      <div className="space-y-6">
-        {work.map((item) => (
-          <div key={item.id} className="border-b pb-4">
-            <div
-              className="flex justify-between items-center cursor-pointer"
-              onClick={() => setOpenId(openId === item.id ? null : item.id)}
-            >
-              <h3 className="text-xl md:text-2xl font-semibold text-[#211551]">
-                {item.title}
-              </h3>
-              <span className="text-3xl">
-                {openId === item.id ? "−" : "+"}
-              </span>
-            </div>
-
-            {openId === item.id && (
-              <p className="mt-3 text-gray-600">
-                {item.desc}
-              </p>
-            )}
-          </div>
-        ))}
-      </div>
     </div>
 
-    <div className="w-full lg:w-1/2 h-[350px] md:h-[500px]">
-      <Image
-        src="/aboutUs/coach.png"
-        alt="Coach"
-        fill
-        className="object-cover rounded-xl"
-      />
-    </div>
-  </section>
-
-  <section className="bg-gray-900 text-white py-20 px-6">
-    <div className="text-center max-w-3xl mx-auto mb-14">
-      <h2 className="text-3xl md:text-4xl font-bold mb-4">
-        Get To Know The Team Powering Inside Out
-      </h2>
-      <p className="text-gray-300">
-        Our Coaches Are The Heart Of Our Community.
-      </p>
-      <button className="mt-6 px-6 py-3 bg-red-700 rounded-lg hover:bg-red-800 transition">
-        See All Trainers
-      </button>
-    </div>
-
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-6xl mx-auto">
-      {trainers.map((trainer) => (
+    <div className="grid md:grid-cols-2 gap-10">
+      {trainers.map(trainer => (
         <div
           key={trainer.id}
-          className="flex flex-col md:flex-row bg-gray-800 rounded-xl p-6 gap-6"
+          className="flex flex-col sm:flex-row bg-gray-800 rounded-xl p-6 hover:scale-[1.02] transition"
         >
           <img
             src={trainer.img}
-            alt={trainer.name}
-            className="w-full md:w-44 h-44 object-cover rounded-xl"
+            className="w-40 h-40 object-cover rounded-lg mb-4 sm:mb-0 sm:mr-6"
           />
           <div>
-            <h3 className="text-2xl font-bold text-red-600">
-              {trainer.name}
-            </h3>
+            <h3 className="text-2xl font-bold text-red-600">{trainer.name}</h3>
             <p className="italic text-gray-300">{trainer.role}</p>
-            <p className="mt-2 font-semibold">
-              Year At INSIDE OUT FITNESS: {trainer.year}
-            </p>
-            <p className="text-gray-300 mt-2">
-              {trainer.description}
-            </p>
+            <p className="mt-2 text-gray-400">{trainer.description}</p>
           </div>
         </div>
       ))}
     </div>
-  </section>
+  </div>
+</section>
 
-  <section className="py-24 text-[#211551]">
-    <div className="max-w-7xl mx-auto px-6">
-      <div className="text-center max-w-3xl mx-auto mb-16">
-        <h2 className="text-4xl md:text-5xl italic font-semibold mb-6">
-          A Place That Feels Like Home
-        </h2>
-        <p className="text-gray-600">
-          Consistency Comes From Community And Real Connection.
-        </p>
-      </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 auto-rows-[200px]">
-        {images.map((src, index) => (
-          <div
-            key={index}
-            className={`relative rounded-2xl overflow-hidden ${
-              index === 0 ? "row-span-2" : ""
-            } ${index === 1 ? "col-span-2" : ""}`}
-          >
-            <Image
-              src={src}
-              alt="Community"
-              fill
-              className="object-cover hover:scale-110 transition-transform duration-500"
-            />
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
+            <section className=" text-[#211551] py-24">
+                <div className="max-w-7xl mx-auto px-6">
 
-  <section>
-    <LeadFormSection />
-  </section>
+                    <div className="text-center max-w-3xl mx-auto mb-16">
+                        <h2 className="text-4xl md:text-5xl font-semibold italic mb-6">
+                            A Place That Feels Like Home
+                        </h2>
+                        <p className="text-gray-600 leading-relaxed">
+                            At Inside Out Fitness, We Know Consistency Comes From Community.
+                            We Foster Real Connections That Go Beyond The Gym, Creating A
+                            Space Where Everyone Feels Like Part Of The Family.
+                        </p>
+                    </div>
 
-</div>
+                
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 auto-rows-[220px]">
 
+                        {images.map((src, index) => (
+                            <div
+                                key={index}
+                                className={`relative overflow-hidden rounded-2xl group
+                ${index === 0 ? "row-span-2" : ""}
+                ${index === 1 ? "col-span-2" : ""}
+              `}
+                            >
+                                <Image
+                                    src={src}
+                                    alt="Community Training"
+                                    fill
+                                    className="object-cover group-hover:scale-110 transition-transform duration-500"
+                                />
+                            </div>
+                        ))}
+
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <LeadFormSection />
+            </section>
+
+        </div>
     )
 }
 
