@@ -49,7 +49,7 @@ const Navbar = () => {
     },
     {
       title: "Trainers",
-      href: "/",
+      href: "/trainers",
     },
   ]
 

@@ -5,7 +5,7 @@ import React, { useState } from 'react'
 import { ChevronLeft, ChevronRight, Star } from "lucide-react";
 import OurCoreValues from '../components/OurCoreValues';
 import LeadFormSection from '../components/LeadForm';
-
+import { motion } from 'framer-motion';
 
 const AboutUs = () => {
     const [current, setCurrent] = useState(0);
@@ -75,44 +75,51 @@ const AboutUs = () => {
     return (
         <div>
             <section className="bg-[#211551] text-white">
-                <div className="max-w-7xl mx-auto px-6 py-16 flex flex-col-reverse md:flex-row items-center gap-12">
+                <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
+                    viewport={{ once: true }}
+                    className='relative'
+                >
 
-                    {/* Text */}
-                    <div className="w-full md:w-1/2">
-                        <h1 className="text-4xl md:text-5xl font-extrabold leading-tight">
-                            More than workouts
-                        </h1>
-                        <h2 className="text-3xl md:text-4xl font-bold mt-2">
-                            A Place to belong
-                        </h2>
 
-                        <p className="mt-6 text-base md:text-lg text-gray-200 leading-relaxed">
-                            At Inside Out Fitness, we are dedicated to helping you achieve your fitness goals in a supportive and motivating environment.
-                        </p>
+                    <div className="max-w-7xl mx-auto px-6 py-16 flex flex-col-reverse md:flex-row items-center gap-12">
+                        <div className="w-full md:w-1/2">
+                            <h1 className="text-4xl md:text-5xl font-extrabold leading-tight">
+                                More than workouts
+                            </h1>
+                            <h2 className="text-3xl md:text-4xl font-bold mt-2">
+                                A Place to belong
+                            </h2>
 
-                        <p className="mt-4 text-base md:text-lg text-gray-200 leading-relaxed">
-                            Whether you're a beginner or a seasoned athlete, we offer a variety of classes and personalized training programs.
-                        </p>
+                            <p className="mt-6 text-base md:text-lg text-gray-200 leading-relaxed">
+                                At Inside Out Fitness, we are dedicated to helping you achieve your fitness goals in a supportive and motivating environment.
+                            </p>
+
+                            <p className="mt-4 text-base md:text-lg text-gray-200 leading-relaxed">
+                                Whether you're a beginner or a seasoned athlete, we offer a variety of classes and personalized training programs.
+                            </p>
+                        </div>
+
+                        <div className="w-full md:w-1/2">
+                            <Image
+                                src="/aboutUs/aboutusHerosection.png"
+                                width={600}
+                                height={600}
+                                alt="Fitness Team"
+                                className="w-full h-auto rounded-xl shadow-xl"
+                            />
+                        </div>
                     </div>
-
-                    {/* Image */}
-                    <div className="w-full md:w-1/2">
-                        <Image
-                            src="/aboutUs/aboutusHerosection.png"
-                            width={600}
-                            height={600}
-                            alt="Fitness Team"
-                            className="w-full h-auto rounded-xl shadow-xl"
-                        />
-                    </div>
-                </div>
+                </motion.div>
             </section>
 
 
             <section className="bg-[#fdfbf7] py-20 relative">
                 <div className="max-w-6xl mx-auto px-6 text-center relative">
 
-                    {/* Navigation */}
+
                     <button
                         onClick={prevSlide}
                         className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2
@@ -129,8 +136,7 @@ const AboutUs = () => {
                         <ChevronRight />
                     </button>
 
-                    {/* Slide */}
-                    <div className="relative min-h-[300px] flex items-center justify-center">
+                    <div className="relative min-h-75 flex items-center justify-center">
                         {slides.map((slide, index) => (
                             <div
                                 key={index}
@@ -158,7 +164,7 @@ const AboutUs = () => {
                         ))}
                     </div>
 
-                    {/* Dots */}
+
                     <div className="flex justify-center gap-3 mt-8">
                         {slides.map((_, i) => (
                             <button
@@ -179,8 +185,14 @@ const AboutUs = () => {
 
             <section className="max-w-7xl mx-auto px-6 py-20 flex flex-col-reverse md:flex-row gap-12 items-center">
 
-                {/* Content */}
-                <div className="w-full md:w-1/2">
+
+                <motion.div
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
+                    viewport={{ once: true }}
+                    className="w-full md:w-1/2"
+                >
                     <h2 className="text-4xl font-bold text-[#211551] mb-4">
                         How Inside Out Fitness Works?
                     </h2>
@@ -190,41 +202,52 @@ const AboutUs = () => {
                     </p>
 
                     <div className="space-y-6">
-                        {work.map(item => (
+                        {work.map((item) => (
                             <div key={item.id} className="border-b pb-4">
-                                <div
-                                    className="flex justify-between items-center cursor-pointer"
+                                <button
+                                    className="flex w-full justify-between items-center text-left"
                                     onClick={() => setOpenId(openId === item.id ? null : item.id)}
                                 >
                                     <h3 className="text-xl font-semibold text-[#211551]">
                                         {item.title}
                                     </h3>
-                                    <span className="text-3xl">
+                                    <span className="text-3xl font-light">
                                         {openId === item.id ? "−" : "+"}
                                     </span>
-                                </div>
+                                </button>
 
-                                {openId === item.id && (
-                                    <p className="mt-3 text-gray-600">
-                                        {item.desc}
-                                    </p>
-                                )}
+                                <motion.p
+                                    initial={false}
+                                    animate={{ height: openId === item.id ? "auto" : 0, opacity: openId === item.id ? 1 : 0 }}
+                                    transition={{ duration: 0.3 }}
+                                    className="overflow-hidden text-gray-600 mt-3"
+                                >
+                                    {item.desc}
+                                </motion.p>
                             </div>
                         ))}
                     </div>
-                </div>
+                </motion.div>
 
-                {/* Image */}
-                <div className="w-full md:w-1/2">
+                <motion.div
+                    initial={{ opacity: 0, x: 40 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.8, ease: "easeOut" }}
+                    viewport={{ once: true }}
+                    className="w-full md:w-1/2"
+                >
                     <Image
                         src="/aboutUs/coach.png"
                         width={600}
                         height={600}
                         alt="Coach"
-                        className="rounded-xl shadow-xl w-full"
+                        className="rounded-xl shadow-xl w-full object-cover"
+                        priority
                     />
-                </div>
+                </motion.div>
+
             </section>
+
 
             <section className="bg-gray-900 text-white py-20 px-6">
                 <div className="max-w-7xl mx-auto">
