@@ -41,7 +41,7 @@ const Navbar = () => {
     },
     {
       title: "Services",
-      href: "/",
+      href: "/services",
       // submenu: [
       //   { label: "Our Partners", href: "/partners/our-partners" },
       //   { label: "Brand Collabs", href: "/partners/collaborations" },
