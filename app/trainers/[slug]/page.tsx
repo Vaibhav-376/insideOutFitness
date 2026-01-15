@@ -68,7 +68,7 @@ const TrainerPage = async ({
         initial={{ opacity: 0, scale: 1.05 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="relative h-[420px] w-full overflow-hidden rounded-b-3xl"
+        className="relative h-105 w-full overflow-hidden rounded-b-3xl"
       >
         <Image
           src={trainer.image}
@@ -78,7 +78,7 @@ const TrainerPage = async ({
           className="object-contain object-center"
         />
 
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-slate-900/20 to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-t from-slate-900/60 via-slate-900/20 to-transparent" />
       </motion.div>
 
       {/* Content */}
