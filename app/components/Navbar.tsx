@@ -60,11 +60,11 @@ const Navbar = () => {
          
           <Link href="/">
             <Image
-              src="/homepage/logo.png"
+              src="/homepage/logo-main.png"
               alt="insideoutfitness Logo"
-              width={160}
+              width={195}
               height={60}
-              className="bg-black rounded-2xl"
+              className="w-full object-contain"
             />
           </Link>
 

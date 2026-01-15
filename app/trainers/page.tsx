@@ -4,13 +4,15 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import LeadFormSection from '../components/LeadForm'
+import { link } from 'fs'
+import Link from 'next/link'
 
 const Trainers = () => {
     const trainers = [
-        { id: 1, name: "Jake", image: "/trainers/coach1.png", profile: "INSIDE OUT FITNESS COACH | LEAD PERFORMANCE COACH" },
-        { id: 2, name: "Rachel", image: "/trainers/coach2.png", profile: "INSIDE OUT FITNESS DIRECTOR" },
-        { id: 3, name: "Edzar 'O.D'", image: "/trainers/coach3.png", profile: "INSIDE OUT FITNESS COACH PERFORMANCE COACH" },
-        { id: 4, name: "Aizik", image: "/trainers/coach4.png", profile: "INSIDE OUT FITNESS COACH ASSISTANT PERFORMANCE COACH" },
+        { id: 1, name: "Jake", image: "/trainers/coach1.png", profile: "INSIDE OUT FITNESS COACH | HEAD PERFORMANCE COACH", link: "/trainers/jake" },
+        { id: 2, name: "Rachel", image: "/trainers/coach2.png", profile: "INSIDE OUT FITNESS DIRECTOR", link: "/trainers/rachel" },
+        { id: 3, name: "Edzar 'O.D'", image: "/trainers/coach3.png", profile: "INSIDE OUT FITNESS  PERFORMANCE TRAINER  ", link: "/trainers/edzar-od" },
+        { id: 4, name: "Aizik", image: "/trainers/coach4.png", profile: "INSIDE OUT FITNESS ASSISTANT TRAINER", link: "/trainers/aizik" },
     ]
     return (
         <div>
@@ -83,6 +85,26 @@ const Trainers = () => {
                             />
                             <h2 className="text-xl font-bold mt-4 text-[#211551]">{trainer.name}</h2>
                             <p className="text-gray-800 font-bold">{trainer.profile}</p>
+
+                            <Link
+                                href={trainer.link}
+                                className="
+    inline-flex items-center justify-center
+    mt-3
+    rounded-lg
+    bg-[#211551]
+    px-6 py-2.5
+    text-sm font-semibold text-white
+    shadow-md
+    transition-all duration-300
+    hover:bg-[#2e1d73]
+    hover:shadow-lg
+    focus:outline-none focus:ring-2 focus:ring-[#211551]/50
+  "
+                            >
+                                Read More
+                            </Link>
+
                         </motion.div>
                     ))}
                 </motion.div>

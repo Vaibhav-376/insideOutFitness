@@ -18,7 +18,7 @@ const Services = () => {
                     className="absolute inset-0"
                 >
                     <Image
-                        src="/service/herosection.jpg"
+                        src="/service/herosection-servicess.jpeg"
                         alt="hero-section"
                         fill
                         priority
@@ -94,7 +94,7 @@ const Services = () => {
 
                         <div className="md:w-[60%] w-full">
                             <Image
-                                src="/service/services.jpg"
+                                src="/service/services.jpeg"
                                 alt="services"
                                 width={800}
                                 height={600}

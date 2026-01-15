@@ -7,6 +7,7 @@ import Ourservices from "./components/Ourservices";
 import { useEffect, useState } from "react"
 import LeadFormSection from "./components/LeadForm";
 import CoachingApproach from "./components/CoachingApproach";
+import Link from "next/link";
 
 
 export default function Home() {
@@ -21,26 +22,25 @@ export default function Home() {
     {
       id: 1,
       name: "Jake",
-      role: "INSIDE OUT FITNESS Lead Performance Coach",
-      year: 2024,
+      role: "INSIDE OUT FITNESS Head Performance Coach",
+      // year: 2024,
       description:
-        "Jake has been shaping bodies and mindsets since 1995 with one guiding principle: Train like an athlete. From competitive players to busy parents, he knows every body has untapped potential! And he’s here to help you reach it.",
+        "Jake has been transforming bodies and mindsets since 1995 with a simple, powerful philosophy: train like an athlete. Whether you’re a competitive soccer player or a busy soccer mom, Jake believes your body holds the potential to perform at its peak—and he’s here to get you there.",
       img: "/homepage/trainer.png",
     },
     {
       id: 2,
       name: 'Edzar "O.D."',
-      role: "INSIDE OUT FITNESS Performance Coach",
+      role: "INSIDE OUT FITNESS Performance Trainer",
       year: 2018,
-      description:
-        "Edzar “O.D.” is a passionate athlete and coach, dedicated to helping every member reach their peak performance. With experience traveling the U.S. and competing in multiple bodybuilding contests, O.D. is known for his focused, results-driven training style.",
-      img: "/homepage/femaleCoach.jpg",
+      description:"Edzar “O.D.” Felipe is a dedicated fitness professional and athlete committed to helping every individuals unlock their peak physical potential. Having traveled the U.S. and done multiple bodybuilding competitions, O.D. has developed a reputation for a no-nonsense, results-oriented approach to training.",
+      img: "/trainers/coach3.png",
     },
   ];
   const slides = [
     {
       id: 1,
-      image: "/homepage/herosection1.jpg",
+      image: "/homepage/herosection.jpeg",
       title: (
         <>
           Where Training Feels Personal and{" "}
@@ -52,7 +52,7 @@ export default function Home() {
     },
     {
       id: 2,
-      image: "/homepage/herosection2.jpg",
+      image: "/homepage/herosection2.jpeg",
       title: (
         <>
           Build Strength. Build Confidence.{" "}
@@ -64,7 +64,7 @@ export default function Home() {
     },
     {
       id: 3,
-      image: "/homepage/herosection3.jpg",
+      image: "/homepage/herosection3.jpeg",
       title: (
         <>
           Results That Last{" "}
@@ -81,20 +81,21 @@ export default function Home() {
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prev) => (prev + 1) % slides.length)
-    }, 3000)
+    }, 6000)
 
     return () => clearInterval(interval)
   }, [])
   return (
     <div>
       <section className="relative h-screen w-full overflow-hidden">
+
         <AnimatePresence mode="wait">
           <motion.div
             key={slides[index].id}
-            initial={{ opacity: 0, scale: 1.1 }}
+            initial={{ opacity: 0, scale: 1.08 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 1.05 }}
-            transition={{ duration: 2.2, ease: "easeOut" }}
+            transition={{ duration: 1.5, ease: "easeInOut" }}
             className="absolute inset-0"
           >
             <Image
@@ -102,53 +103,57 @@ export default function Home() {
               alt="Hero Slide"
               fill
               priority
+              sizes="100vw"
               className="object-cover"
             />
           </motion.div>
         </AnimatePresence>
 
 
-        <div className="absolute inset-0 bg-black/60" />
+        <div className="absolute inset-0 bg-black/60 pointer-events-none z-10" />
 
 
-        <div className="relative z-10 h-full flex items-center justify-center">
-          <motion.div
-            key={`content-${index}`}
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4 }}
-            className="text-left text-white px-6 max-w-3xl"
-          >
-            <h1 className="text-4xl md:text-5xl font-extrabold leading-tight">
-              {slides[index].title}
-            </h1>
+        <div className="relative z-20 h-full flex items-center justify-center">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={`content-${index}`}
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 1.8, ease: "easeInOut" }}
+              className="text-left text-white px-6 max-w-3xl"
+            >
+              <h1 className="text-4xl md:text-5xl font-extrabold leading-tight">
+                {slides[index].title}
+              </h1>
 
-            <p className="mt-6 text-lg md:text-xl text-gray-200 leading-relaxed">
-              {slides[index].desc}
-            </p>
+              <p className="mt-6 text-lg md:text-xl text-gray-200 leading-relaxed">
+                {slides[index].desc}
+              </p>
 
-            <div className="mt-10 flex flex-col sm:flex-row gap-4">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="bg-[#211551] hover:bg-orange-600 transition px-8 py-3 rounded-md font-semibold shadow-lg"
-              >
-                Get a Quote
-              </motion.button>
+              <div className="mt-10 flex flex-col sm:flex-row gap-4">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="bg-[#211551] hover:bg-orange-600 transition px-8 py-3 rounded-md font-semibold shadow-lg"
+                >
+                  Get a Quote
+                </motion.button>
 
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="border border-white hover:bg-white hover:text-[#211551] transition px-8 py-3 rounded-md font-semibold"
-              >
-                Learn More
-              </motion.button>
-            </div>
-          </motion.div>
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="border border-white hover:bg-white hover:text-[#211551] transition px-8 py-3 rounded-md font-semibold"
+                >
+                  Learn More
+                </motion.button>
+              </div>
+            </motion.div>
+          </AnimatePresence>
         </div>
 
-
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-3 z-20">
+        {/* Dots */}
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-3 z-30">
           {slides.map((_, i) => (
             <button
               key={i}
@@ -159,6 +164,7 @@ export default function Home() {
           ))}
         </div>
       </section>
+
 
       <section className="py-24 max-w-7xl mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 items-center">
@@ -172,7 +178,7 @@ export default function Home() {
             className="overflow-hidden rounded-xl"
           >
             <Image
-              src="/homepage/why1.jpg"
+              src="/homepage/why1.jpeg"
               alt="why us"
               width={400}
               height={400}
@@ -220,7 +226,7 @@ export default function Home() {
             className="overflow-hidden rounded-xl"
           >
             <Image
-              src="/homepage/why2.jpg"
+              src="/homepage/why2.jpeg"
               alt="why us"
               width={400}
               height={400}
@@ -333,7 +339,7 @@ export default function Home() {
             className="relative h-125 md:h-150 w-full"
           >
             <Image
-              src="/homepage/pt-training.jpg"
+              src="/homepage/herosection.jpeg"
               alt="inside out Workout"
               fill
               className="object-cover"
@@ -348,10 +354,10 @@ export default function Home() {
         <div className="bg-[#211551] py-6 relative overflow-hidden">
           <div className="flex whitespace-nowrap animate-marquee">
             <span className="mx-8 text-white text-2xl md:text-3xl font-extrabold tracking-wide">
-              TRAINING ★ LIFE CHANGING ★ TEAM TRAINING ★ LIFE CHANGING ★
+              TRAINING ★ TRAIN LIKE AN ATHLETE ★ TEAM TRAINING ★ TRAIN LIKE AN ATHLETE ★
             </span>
             <span className="mx-8 text-white text-2xl md:text-3xl font-extrabold tracking-wide">
-              TRAINING ★ LIFE CHANGING ★ TEAM TRAINING ★ LIFE CHANGING ★
+              TRAINING ★ TRAIN LIKE AN ATHLETE ★ TEAM TRAINING ★ TRAIN LIKE AN ATHLETE ★
             </span>
           </div>
         </div>
@@ -371,9 +377,9 @@ export default function Home() {
             Our Coaches Are The Heart Of Our Community, Bringing Their Passion, Expertise, And
             One-Of-A-Kind Personalities To Every Single Session.
           </p>
-          <button className="mt-6 px-6 py-3 bg-red-700 hover:bg-red-800 transition rounded shadow-lg">
+          <Link href="/trainers"><button className="mt-6 px-6 py-3 bg-red-700 hover:bg-red-800 transition rounded shadow-lg">
             See All Trainers
-          </button>
+          </button></Link>
         </div>
 
         <div className="grid md:grid-cols-2 gap-12">
